@@ -1,6 +1,8 @@
 package it.demo.bank.controller;
 
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +16,6 @@ import io.swagger.annotations.ApiOperation;
 import it.demo.bank.exceptions.ControllerException;
 import it.demo.bank.exceptions.ServiceException;
 import it.demo.bank.service.BankService;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
