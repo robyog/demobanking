@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping(value = "/api/v1/account", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
-public class BankController {
+public class BankController extends ControllerExceptionHandler{
 
 	
 	@Autowired

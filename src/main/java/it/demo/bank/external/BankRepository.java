@@ -31,11 +31,12 @@ public class BankRepository {
 			URI uriCashApi = URI.create(
 					fabrickApiConnectionParam.getBaseurl().concat(fabrickApiConnectionParam.getAccountCashApi().concat(accountId)));
 			HttpHeaders headers = setStandardHeaders();
-			HttpEntity<String> entity = new HttpEntity<>("body", headers);
+			HttpEntity<String> entity = new HttpEntity<>(accountId, headers);
 			ResponseEntity<Account> response = fabrickRestTemplate.exchange(uriCashApi, HttpMethod.GET,entity, Account.class);
 			return response.getBody();
 		} catch (Exception e) {
-			throw new FabrickApiException("Impossible retrieve data for accountId " + accountId, e);
+			log.error("Impossible retrieve data for accountId " + accountId, e);
+			throw new FabrickApiException("Impossible retrieve data for accountId " + accountId);
 		}
 
 	}
